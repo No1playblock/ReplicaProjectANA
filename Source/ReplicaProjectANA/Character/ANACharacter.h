@@ -6,7 +6,7 @@
 #include "PaperZDCharacter.h"
 #include "Interface/DamagableCharacter.h"
 #include "Character/BaseCharacter.h"
-#include "InputBufferStruct.h"
+#include "Utility/InputBufferStruct.h"
 #include "InputActionValue.h"
 #include "ANACharacter.generated.h"
 

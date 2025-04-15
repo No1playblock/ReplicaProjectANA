@@ -2,7 +2,7 @@
 
 
 #include "BTService_AgroCheck.h"
-#include "Mob_AIController.h"
+#include "Controller/Mob_AIController.h"
 #include "Character/MobCharacter.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/BehaviorTree.h"

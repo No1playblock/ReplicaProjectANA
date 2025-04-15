@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTTaskNode.h"
-#include "Mob_AIController.h"
+#include "Controller/Mob_AIController.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
 #include "Prop/Bullet.h"
 #include "BTTask_Spitting.generated.h"

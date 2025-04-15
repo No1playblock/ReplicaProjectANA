@@ -7,7 +7,7 @@
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameData/SaveLoadClass.h"
-#include "MyGameInstance.h"
+#include "Game/MyGameInstance.h"
 #include "GameFramework/Controller.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"

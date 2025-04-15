@@ -11,7 +11,7 @@
 #include "UI/TextBallonWidgetComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "DialogueManager.h"
+#include "Prop/DialogueManager.h"
 #include "Math/UnrealMathUtility.h"  // FMath »ç¿ë
 
 ANPC::ANPC()

@@ -4,8 +4,7 @@
 #include "BTTask_IsAttackToFalse.h"
 #include "AIController.h"
 #include "BehaviorTree/BlackboardComponent.h"
-#include "Mob_AIController.h"
-
+#include "Controller/Mob_AIController.h"
 
 //키값을 못가져올때가 있어서 이걸 써줘야함.
 void UBTTask_IsAttackToFalse::InitializeFromAsset(UBehaviorTree& Asset)

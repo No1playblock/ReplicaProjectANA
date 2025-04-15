@@ -3,7 +3,7 @@
 
 #include "BTTask_SetRandomLocation.h"
 #include "BehaviorTree/BlackboardComponent.h"
-#include "Mob_AIController.h"
+#include "Controller/Mob_AIController.h"
 #include "Character/MobCharacter.h"
 #include "NavigationSystem.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"

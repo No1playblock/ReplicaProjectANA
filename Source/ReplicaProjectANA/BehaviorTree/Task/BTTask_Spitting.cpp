@@ -1,13 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "BTTask_Spitting.h"
 #include "Character/MobCharacter.h"
 #include "Character/ANACharacter.h"
 #include "PaperFlipbookComponent.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
-#include "Mob_AIController.h"
+#include "Controller/Mob_AIController.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
 #include "Engine/World.h"
@@ -17,7 +16,7 @@
 UBTTask_Spitting::UBTTask_Spitting()
 {
 	TargetToFollow.AddObjectFilter(this, GET_MEMBER_NAME_CHECKED(UBTTask_Spitting, TargetToFollow), AActor::StaticClass());
-	IsTasking.AddBoolFilter(this, GET_MEMBER_NAME_CHECKED(UBTTask_Spitting, IsTasking));
+	IsTasking.AddBoolFilter(this, GET_MEMBER_NAME_CHECKED(UBTTask_Spitting, IsTasking)); 
 }
 
 void UBTTask_Spitting::InitializeFromAsset(UBehaviorTree& Asset)
@@ -46,7 +45,6 @@ EBTNodeResult::Type UBTTask_Spitting::ExecuteTask(UBehaviorTreeComponent& OwnerC
 	FVector playerLocation = ThisCharacter->GetSprite()->GetSocketLocation("Mouth");
 
 	AANACharacter* TargetToFollowActor = Cast<AANACharacter>(ThisController->GetBlackboardComp()->GetValueAsObject(TargetToFollow.SelectedKeyName));
-
 
 
 	if (IsValid(TargetToFollowActor))

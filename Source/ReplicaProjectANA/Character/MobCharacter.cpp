@@ -3,7 +3,7 @@
 
 #include "MobCharacter.h"
 #include "ANACharacter.h"
-#include "Mob_AIController.h"
+#include "Controller/Mob_AIController.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/GameplayStatics.h"

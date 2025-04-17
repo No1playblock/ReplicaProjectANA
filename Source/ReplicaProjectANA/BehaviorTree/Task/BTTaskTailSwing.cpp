@@ -49,15 +49,16 @@ void UBTTaskTailSwing::ForloopWithDelay(UBehaviorTreeComponent* OwnerComp)
     
     for (int32 i = 0; i < NumPoints; i++)
     {
+        //원의 둘레 위에 생성할 개수에 맞춰서 각도를 구함
         float AngleRad = FMath::DegreesToRadians(i * (360 / NumPoints));
-
         float Radius = TailRadius - CircleRadius;
 
+        //몹의 위치에 맞춰서 좌표값 구해줌
         float X = FMath::Cos(AngleRad) * Radius + Center.X;
         float Y = FMath::Sin(AngleRad) * Radius + Center.Y;
         float Z = 150.0f;
 
-        AttackPoints.Add(FVector(X, Y, Z));
+        AttackPoints.Add(FVector(X, Y, Z));     //각 지점들을 저장
     }
 
     //시계방향꼬리치기
@@ -68,7 +69,7 @@ void UBTTaskTailSwing::ForloopWithDelay(UBehaviorTreeComponent* OwnerComp)
 
         GetWorld()->GetTimerManager().SetTimer(SwingHandle, FTimerDelegate::CreateLambda([this, i]()
             {
-                TailSwing(i);
+                TailSwing(i); //충돌Sphere 생성 및 그리기
             }), 
             DelayTime, false);
     }
@@ -82,7 +83,7 @@ void UBTTaskTailSwing::ForloopWithDelay(UBehaviorTreeComponent* OwnerComp)
 
         GetWorld()->GetTimerManager().SetTimer(ReverseHandle, FTimerDelegate::CreateLambda([this, i]()
             {
-                TailSwing(i);
+                TailSwing(i); //충돌Sphere 생성 및 그리기
             }),
             DelayTime, false);
     }
@@ -100,8 +101,9 @@ void UBTTaskTailSwing::TailSwing(int32 Index)
     
     TArray<AActor*> OutActors;
 
-    UE_LOG(LogTemp, Warning, TEXT("index: %d"), Index);
+    //좌표에 맞춰서 
     bool bHit = UKismetSystemLibrary::SphereOverlapActors(GetWorld(),AttackPoints[Index], CircleRadius, ObjectTypes, FilterClass, {}, OutActors);
+#if WITH_EDITOR
     DrawDebugCircle(
         GetWorld(),
         AttackPoints[Index],
@@ -137,6 +139,7 @@ void UBTTaskTailSwing::TailSwing(int32 Index)
             );
         }
     }
+#endif
 }
 
 void UBTTaskTailSwing::FinishTask(UBehaviorTreeComponent* OwnerComp)

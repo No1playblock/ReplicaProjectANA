@@ -18,16 +18,13 @@ void UChoiceButtonWidget::NativeConstruct()
 void UChoiceButtonWidget::SetupChoice(const FString& Text, const FString& InID)
 {
 	ChoiceID = InID;
-	UE_LOG(LogTemp, Warning, TEXT("SetupChoice"));
 	if (ChoiceText)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("ChoiceTExt: %s"), *Text);
 		ChoiceText->SetText(FText::FromString(Text));
 	}
 }
 
 void UChoiceButtonWidget::HandleClicked()
 {
-	UE_LOG(LogTemp, Warning, TEXT("HandleClicked"));
 	OnChoiceClicked.Broadcast(ChoiceID);
 }

@@ -83,8 +83,8 @@ void ANPC::Interact()	//E 지우고 DialogueManager로 내 이름 보내기
 
 	if (bTalking)	//대화중이면 상호작용을 DialogueManager에 넘긴다. 아니라면 얘한테
 	{
-		bTalking = DialogueMgr->ProgressingDialogue();			//대화가 끝나면 false반환
-		UE_LOG(LogTemp, Warning, TEXT("ProgressingDialogue"));
+		//대화가 끝나면 false반환
+		bTalking = DialogueMgr->ProgressingDialogue();			
 	}
 	else
 	{

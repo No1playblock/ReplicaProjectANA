@@ -59,8 +59,7 @@ void UBTTaskSmashGround::Floating()
 void UBTTaskSmashGround::FollowPlayer()
 {
 	
-	//Player = Cast<AActor>(CachedOwnerComp->GetBlackboardComponent()->GetValueAsObject(TargetToFollowKey.SelectedKeyName));
-	//APawn* MobPawn = CachedOwnerComp->GetAIOwner()->GetPawn();
+	
 	FVector PlayerLocation = FVector(Player->GetActorLocation().X, Player->GetActorLocation().Y, 0.0f);
 	FVector MobLocation = FVector(Mob->GetActorLocation().X, Mob->GetActorLocation().Y, 0.0f);
 
@@ -105,7 +104,8 @@ void UBTTaskSmashGround::ShockWave(int32 Index)
 	for (int i = 0; i < ShockWaveNum; i++)
 	{
 		FRotator Rotate = FRotator(0.0f, (360 / ShockWaveNum) * i, 0.0f);
-		FVector ShockWaveLocation = Rotate.Vector()*(2*ShockWaveBoxHalfSize.X) * Index;		//충격파의 박스크기 X 로테이션의 전방벡터 X 울린 횟수로 위치정하기
+		//로테이션의 전방벡터 * 충격파의 박스크기 * 울린 횟수로 위치정하기
+		FVector ShockWaveLocation = Rotate.Vector()*(2*ShockWaveBoxHalfSize.X) * Index;		//생성될 박스위치	
 		FVector MobLocation = FVector(Mob->GetActorLocation().X, Mob->GetActorLocation().Y, 200.0f);
 
 		FVector ShockWaveCenterLocation = ShockWaveLocation + MobLocation;

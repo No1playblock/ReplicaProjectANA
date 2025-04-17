@@ -25,7 +25,6 @@ void UDialogueChoiceWidget::InitChoices(const TArray<FString>& Choices, const TA
 		UChoiceButtonWidget* ChoiceButtonWidget = CreateWidget<UChoiceButtonWidget>(GetWorld(), ChoiceButton);
 		if (!ChoiceButtonWidget) continue;
 
-		UE_LOG(LogTemp, Warning, TEXT("CreateChoickeButtonWidget"));
 		ChoiceButtonWidget->SetupChoice(Choices[i], ChoiceIDs.IsValidIndex(i) ? ChoiceIDs[i] : TEXT(""));
 
 		ChoiceButtonWidget->OnChoiceClicked.AddDynamic(this, &UDialogueChoiceWidget::HandleChoiceSelected);
@@ -40,8 +39,5 @@ void UDialogueChoiceWidget::InitChoices(const TArray<FString>& Choices, const TA
 void UDialogueChoiceWidget::HandleChoiceSelected(const FString& SelectedID)
 {
 	//버튼이 클릭되면 호출
-	UE_LOG(LogTemp, Warning, TEXT("HandleChoiceSelected"));
 	OnChoiceSelected.Broadcast(SelectedID);
-	UE_LOG(LogTemp, Warning, TEXT("Finish"));
-	//RemoveFromParent();
 }
